@@ -11,9 +11,7 @@ import 'package:products_repository/products_repository.dart';
 class CartModel extends ChangeNotifier {
   /// The private field backing [catalog].
   //late CatalogModel _catalog;
-  late ProductsRepository _catalog;
-
-  
+  late ProductsRepository _catalog;  
   
 
   /// Internal, private state of the cart. Stores the ids of each item.
@@ -24,7 +22,6 @@ class CartModel extends ChangeNotifier {
   //CatalogModel get catalog => _catalog;
 
   ProductsRepository get catalog => _catalog;
-
 
 
   set catalog(ProductsRepository newCatalog) {
@@ -55,6 +52,7 @@ class CartModel extends ChangeNotifier {
     } 
   }
 
+  /// Removes [Product] from the cart.
   void remove(Product item) {
     _items.remove(item);
     // Don't forget to tell dependent widgets to rebuild _every time_
@@ -72,11 +70,13 @@ class CartModel extends ChangeNotifier {
     return true;
   }
 
+  /// Removes [Product] from favorites.
   void removeFavorite(Product item) {
     _favorites.remove(item);
     notifyListeners();
   }
 
+  /// The current total price of all items in the favorites.
   double get totalFavoritesPrice =>
     _favorites.fold(0, (total, current) => total + current.price);
 }

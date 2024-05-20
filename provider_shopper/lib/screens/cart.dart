@@ -42,6 +42,7 @@ class MyCart extends StatelessWidget {
     );
   }
 
+  /// Shows a modal bottom sheet with the favorites.
   Future<Widget?> showFavoritesModal(BuildContext context) {
     final GlobalKey<ScaffoldState> modelScaffoldKey = GlobalKey<ScaffoldState>();
     return showModalBottomSheet<Widget>(
@@ -59,6 +60,7 @@ class MyCart extends StatelessWidget {
     );    
   }
 
+  /// Builds the list of favorites.
   Container _buildFavoriteList(BuildContext context, CartModel cart) {
     return Container( 
       padding: EdgeInsets.all(16.0), 
@@ -126,7 +128,7 @@ class MyCart extends StatelessWidget {
   }
 }
 
-
+/// The widget below is a helper class that builds the list of items in the cart.
 class _CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -171,6 +173,7 @@ class _CartList extends StatelessWidget {
   }
 }
 
+/// The widget below is a helper class that builds the total price shown at the bottom of the cart.
 class _CartTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
